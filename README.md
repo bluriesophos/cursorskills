@@ -12,7 +12,7 @@ Just markdown files. No magic required.
 
 ```bash
 # Personal (available across all your projects)
-cp -r skill-name/ ~/.cursor/skills/skill-name/
+cp -r skill-name/ ~/.cursor/skills-cursor/skill-name/
 
 # Per-project (shared with anyone using the repository)
 cp -r skill-name/ .cursor/skills/skill-name/
@@ -119,7 +119,7 @@ Key rules:
 
 | Type | Path | Scope |
 |------|------|-------|
-| Personal | `~/.cursor/skills/skill-name/` | Available across all your projects |
+| Personal | `~/.cursor/skills-cursor/skill-name/` | Available across all your projects |
 | Project | `.cursor/skills/skill-name/` | Shared with anyone using the repository |
 
 ---
