@@ -100,6 +100,10 @@ Rules are `.mdc` files with YAML frontmatter. Cursor loads them automatically â€
 
 - [careful-delete](careful-delete) - Destruction cycle: assess blast radius, explicit confirmation, document. Chains pre-mortem and you-sure. No `rm -rf` or `DROP TABLE` without ceremony.
 
+### Release & Deployment
+
+- [pegasus-release-analysis](pegasus-release-analysis) - Analyze Pegasus release branches to extract tickets, pull requests, feature flags, API changes, and GraphQL operations. Provides systematic approach to release documentation and impact analysis.
+
 ### Productivity & Growth
 
 - [pair-mode](pair-mode) - Transforms the agent into a pair programming partner. Explains reasoning, teaches patterns, adjusts depth to your level. Activate with "let's pair on this."
