@@ -100,6 +100,10 @@ Rules are `.mdc` files with YAML frontmatter. Cursor loads them automatically â€
 
 - [careful-delete](careful-delete) - Destruction cycle: assess blast radius, explicit confirmation, document. Chains pre-mortem and you-sure. No `rm -rf` or `DROP TABLE` without ceremony.
 
+### JIRA & Project Management
+
+- [jira-ticket-creator](jira-ticket-creator) - Bulk-create JIRA tickets using a template ticket for project, components, and required custom fields. Extracts field configuration from the template via the REST API, creates tickets with proper ADF formatting, and handles linking and file attachments. Uses `acli` OAuth authentication.
+
 ### Release & Deployment
 
 - [pegasus-release-analysis](pegasus-release-analysis) - Analyze Pegasus release branches to extract tickets, pull requests, feature flags, API changes, and GraphQL operations. Provides systematic approach to release documentation and impact analysis.
