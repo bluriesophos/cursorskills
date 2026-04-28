@@ -66,6 +66,8 @@ Rules are `.mdc` files with YAML frontmatter. Cursor loads them automatically â€
 
 - [code-review](code-review) - Structured code review workflow for comparing branches. Fetches diffs, evaluates against 14 quality criteria (design, security, performance, testing, etc.), and produces prioritised issues grouped by severity. Trigger with "Review 'branch1' against 'branch2'".
 
+- [paired-pr-review](paired-pr-review) - Collaborative review where the user initiates each comment and the agent evaluates, sharpens, and appends to a running review document. Verifies premises against current code, takes an explicit accept/partial/reject verdict, surfaces options when paths diverge, and waits for explicit approval before committing each entry. Trigger when raising review comments yourself rather than asking for an autonomous review.
+
 ### Data & Context Management
 
 - [dont-be-greedy](dont-be-greedy) - Prevents context overflow by estimating file sizes, chunking large data, and summarizing before loading. Never loads raw files without checking first.
