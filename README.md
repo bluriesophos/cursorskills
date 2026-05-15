@@ -197,7 +197,7 @@ Key principles:
 
 Standalone setup docs — not skills or rules, but useful workflows worth sharing.
 
-- [Claude Code + iTerm2: Dynamic Tab Colors by State](guides/claude-iterm2-tab-colors.md) — Make iTerm2 tabs change color (blue/green/red) based on whether Claude Code is working, idle, or waiting for input. Especially useful when running multiple Claude sessions in parallel.
+- [Claude Code + iTerm2: Dynamic Tab Colors by State](guides/claude-iterm2-tab-colors.md) — Make iTerm2 tabs change color based on Claude Code state: blue while working, green when idle, red when Claude is about to run a `Write`/`Edit`/`Bash`/`NotebookEdit` tool (held red while a permission prompt is open). Especially useful when running multiple Claude sessions in parallel.
 
 ---
 
