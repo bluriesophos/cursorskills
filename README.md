@@ -193,6 +193,14 @@ Key principles:
 
 ---
 
+## Guides
+
+Standalone setup docs — not skills or rules, but useful workflows worth sharing.
+
+- [Claude Code + iTerm2: Dynamic Tab Colors by State](guides/claude-iterm2-tab-colors.md) — Make iTerm2 tabs change color (blue/green/red) based on whether Claude Code is working, idle, or waiting for input. Especially useful when running multiple Claude sessions in parallel.
+
+---
+
 ## Credits
 
 Adapted from [Claude-Skill-Potions](https://github.com/ElliotJLT/Claude-Skill-Potions) by [@elliot](https://github.com/elliotjlt). Original skills designed for Claude Code, converted here for Cursor's skill system.
