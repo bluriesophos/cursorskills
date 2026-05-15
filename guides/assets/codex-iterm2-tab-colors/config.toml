@@ -1,0 +1,19 @@
+[hooks]
+SessionStart = [
+  { hooks = [ { type = "command", command = "/Users/benjamin.lurie/.codex/codex-iterm2-tab-colors.sh", async = false } ] }
+]
+UserPromptSubmit = [
+  { hooks = [ { type = "command", command = "/Users/benjamin.lurie/.codex/codex-iterm2-tab-colors.sh", async = false } ] }
+]
+PreToolUse = [
+  { hooks = [ { type = "command", command = "/Users/benjamin.lurie/.codex/codex-iterm2-tab-colors.sh", async = false } ] }
+]
+PostToolUse = [
+  { hooks = [ { type = "command", command = "/Users/benjamin.lurie/.codex/codex-iterm2-tab-colors.sh", async = false } ] }
+]
+PermissionRequest = [
+  { hooks = [ { type = "command", command = "/Users/benjamin.lurie/.codex/codex-iterm2-tab-colors.sh", async = false } ] }
+]
+Stop = [
+  { hooks = [ { type = "command", command = "/Users/benjamin.lurie/.codex/codex-iterm2-tab-colors.sh", async = false } ] }
+]
