@@ -6,9 +6,11 @@ Make your iTerm2 tabs change color based on what Claude Code is doing, so you ca
 |---|---|---|
 | Working | 🔵 Blue | Claude is processing |
 | Done | 🟢 Green | Idle, waiting for your next prompt |
-| Needs input | 🔴 Red | Claude is about to run a `Write`, `Edit`, `Bash`, or `NotebookEdit` tool, or a long-idle notification fired |
+| Needs input | 🔴 Red | Claude is about to run a `Write`, `Edit`, `Bash`, or `NotebookEdit` tool (held red while a permission prompt is open) |
 
 The red state is approximated via `PreToolUse` because Claude Code does **not** emit `Notification` for in-CLI permission prompts when the tab is focused. So we color red whenever Claude is about to touch the filesystem or shell, and revert to blue when the tool completes. If you **deny** a tool, red persists until you submit your next prompt.
+
+> The `Notification` hook is intentionally **not** wired — it fires on long-idle pings and produces spurious red states even when nothing needs attention.
 
 ## Prerequisites
 
@@ -97,13 +99,6 @@ Edit `~/.claude/settings.json` and merge the following entries into the `hooks` 
         ]
       }
     ],
-    "Notification": [
-      {
-        "hooks": [
-          { "type": "command", "command": "echo input | ~/.claude/state.sh" }
-        ]
-      }
-    ],
     "PreToolUse": [
       {
         "matcher": "Write|Edit|Bash|NotebookEdit",
@@ -154,7 +149,6 @@ Then start a new Claude Code session and exercise it:
 
 - **Auto-approved tools flash red briefly** during the PreToolUse → PostToolUse window. Unavoidable with this approach; the flicker is short.
 - **Allowlisted Bash commands** (in `permissions.allow`) still trigger PreToolUse, so they flash red too.
-- The `Notification` hook is kept for completeness — it occasionally fires for long-idle states. Treat it as a bonus signal, not a primary one.
 
 ## Troubleshooting
 
@@ -196,7 +190,7 @@ Change the hex codes in `state.sh`. iTerm2's OSC 1337 `SetColors` accepts any `R
 
 ## How it works
 
-- **Hooks** in `~/.claude/settings.json` fire on Claude Code lifecycle events: `SessionStart`, `UserPromptSubmit`, `PreToolUse`, `PostToolUse`, `Stop`, `Notification`.
+- **Hooks** in `~/.claude/settings.json` fire on Claude Code lifecycle events: `SessionStart`, `UserPromptSubmit`, `PreToolUse`, `PostToolUse`, `Stop`.
 - Each hook pipes a state keyword (`working` / `done` / `input`) into `state.sh`.
 - The script walks up the process tree from the hook subprocess to find the iTerm2 session's TTY (`/dev/ttysNNN`) — necessary because hooks run without a controlling TTY.
 - It writes an **iTerm2 OSC 1337 `SetColors`** escape sequence to that TTY. iTerm2 interprets that as "color this tab".
